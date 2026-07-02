@@ -1,0 +1,58 @@
+{
+  "iter": "iter003_inst_snoopy_mickey_spongebob",
+  "targets": [
+    "Snoopy",
+    "Mickey Mouse",
+    "SpongeBob"
+  ],
+  "op": "whitened",
+  "gamma": 0.5,
+  "erase_type": "instance",
+  "seed": 0,
+  "ns": 10,
+  "max_templates": 0,
+  "n_templates": 80,
+  "erase": {
+    "Snoopy": {
+      "orig": 28.94,
+      "adavd": 20.32,
+      "ours": 19.45
+    },
+    "Mickey Mouse": {
+      "orig": 26.89,
+      "adavd": 22.54,
+      "ours": 22.56
+    },
+    "SpongeBob": {
+      "orig": 27.76,
+      "adavd": 19.15,
+      "ours": 18.4
+    }
+  },
+  "fid": {
+    "Pikachu": {
+      "adavd": 8.99,
+      "ours": 6.86,
+      "winner": "OURS",
+      "clip_orig": 27.85,
+      "clip_adavd": 27.85,
+      "clip_ours": 27.84
+    },
+    "Dog": {
+      "adavd": 2.35,
+      "ours": 2.27,
+      "winner": "OURS",
+      "clip_orig": 24.23,
+      "clip_adavd": 24.24,
+      "clip_ours": 24.23
+    },
+    "Legislator": {
+      "adavd": 5.53,
+      "ours": 5.55,
+      "winner": "AdaVD",
+      "clip_orig": 23.52,
+      "clip_adavd": 23.54,
+      "clip_ours": 23.54
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "iter": "iter009_celeb_melania",
+  "targets": [
+    "Melania Trump"
+  ],
+  "op": "whitened",
+  "gamma": 0.5,
+  "erase_type": "celebrity",
+  "seed": 0,
+  "ns": 10,
+  "max_templates": 0,
+  "n_templates": 25,
+  "erase": {
+    "Melania Trump": {
+      "orig": 29.64,
+      "adavd": 22.92,
+      "ours": 21.9
+    }
+  },
+  "fid": {
+    "Bruce Lee": {
+      "adavd": 5.97,
+      "ours": 6.33,
+      "winner": "AdaVD",
+      "clip_orig": 30.61,
+      "clip_adavd": 30.59,
+      "clip_ours": 30.61
+    },
+    "Marilyn Monroe": {
+      "adavd": 3.19,
+      "ours": 4.06,
+      "winner": "AdaVD",
+      "clip_orig": 27.72,
+      "clip_adavd": 27.71,
+      "clip_ours": 27.7
+    },
+    "Anne Hathaway": {
+      "adavd": 7.33,
+      "ours": 6.85,
+      "winner": "OURS",
+      "clip_orig": 31.94,
+      "clip_adavd": 31.97,
+      "clip_ours": 31.95
+    },
+    "Tom Cruise": {
+      "adavd": 5.19,
+      "ours": 4.38,
+      "winner": "OURS",
+      "clip_orig": 31.16,
+      "clip_adavd": 31.17,
+      "clip_ours": 31.22
+    }
+  }
+}
