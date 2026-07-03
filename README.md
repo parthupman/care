@@ -18,7 +18,7 @@ while leaving the rest of the model's generative prior intact. The difficulty is
 erasing the target; it's erasing it *without* damaging semantically related concepts
 that should be kept. Prior value-space methods erase along the raw recorded target
 direction, which mixes the target's distinctive identity with visual structure it
-shares with concepts that should survive the edit — removing that direction removes
+shares with concepts that should survive the edit, removing that direction removes
 both.
 
 **CARE** replaces the raw target direction with a **kept-subspace-aware direction**,
@@ -37,7 +37,7 @@ $$v_j^{\text{CARE}} = v_j - \delta\big(\cos(t_j, v_j)\big)\, \frac{\langle d_j, 
 
 The `M×M` inverse is computed in closed form via the Woodbury identity (`M ≪ D`), so the
 only added cost is a negligible offline solve (~1.2s) plus ~0.7% per-image generation
-overhead — no fine-tuning, no enumerated preserve set.
+overhead.
 
 ```mermaid
 flowchart LR
@@ -91,7 +91,7 @@ run (`git clone --depth=1 https://github.com/WYuan1001/AdaVD`) and drives it thr
 
 ### 02. Reproducing a single cell
 
-Every run is configured with two environment variables — `ITER_ID` (an output-folder
+Every run is configured with two environment variables `ITER_ID` (an output-folder
 name) and `ADAVD_CFG` (a JSON config: `erase_type`, `targets`, `nontargets`, `anchors`,
 `ns`, `rank`, `op`, `gamma`). This is the exact configuration that produced
 [`results/instance/snoopy.json`](results/instance/snoopy.json):
@@ -126,7 +126,7 @@ python scripts/run_main_experiments.py
 ```
 
 The script optionally uploads each cell's `report.json` to a Hugging Face dataset repo
-as it completes — set `HF_TOKEN` (and optionally `C43A_HF_REPO`) to enable this; it is
+as it completes set `HF_TOKEN` (and optionally `C43A_HF_REPO`) to enable this; it is
 skipped entirely otherwise, so the script runs unmodified on a single local GPU with no
 Hugging Face account required. Expect several GPU-hours for the full 9-cell sweep at
 `ns=10` with all benchmark templates.
@@ -170,8 +170,8 @@ care/
 
 CARE is a training-time-free edit to a frozen diffusion model's cross-attention value
 space; it does not touch the UNet, text encoder, or any cross-attention projection
-weights. It's implemented as a small patch — a single function,
-`AttnProcessor.cal_ortho_decomp` — over an existing value-space erasure codebase
+weights. It's implemented as a small patch a single function,
+`AttnProcessor.cal_ortho_decomp` over an existing value-space erasure codebase
 ([AdaVD](https://github.com/WYuan1001/AdaVD), Wang et al., CVPR 2025), which supplies
 the diffusion pipeline, cross-attention value-recording hooks, and the concept-erasure
 benchmark templates used to produce the results above. Everything outside that one
@@ -183,7 +183,7 @@ A citation will be added here once the paper is published.
 
 ## License
 
-Apache License 2.0 — see [`LICENSE`](LICENSE).
+Apache License 2.0 see [`LICENSE`](LICENSE).
 
 ## Acknowledgement
 
