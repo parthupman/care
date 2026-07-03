@@ -1,9 +1,7 @@
 <div align="center">
 
 # CARE
-### Covariance-Aware Retained-subspace Erasure
-
-*Erasing Without Collateral Damage: Precise Concept Removal in Diffusion Models*
+### *Erasing Without Collateral Damage: Precise Concept Removal in Diffusion Models*
 
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 [![Python 3.9](https://img.shields.io/badge/python-3.9-blue.svg)](requirements.txt)
@@ -15,7 +13,7 @@
 ## Overview
 
 Training-free concept erasure edits a diffusion model's cross-attention value space to
-remove a target concept — an artist's style, a fictional character, a public figure —
+remove a target concept for example, an artist's style, a fictional character, a public figure etc
 while leaving the rest of the model's generative prior intact. The difficulty is not
 erasing the target; it's erasing it *without* damaging semantically related concepts
 that should be kept. Prior value-space methods erase along the raw recorded target
@@ -150,21 +148,6 @@ celebrity concept erasure. Full tables (paper Tables 1, 3–6) are in
 | Erase Marilyn Monroe (celeb) | 19.87 → **17.73** | improves on **all 4** retained identities |
 | Erase Melania Trump (celeb) | 23.28 → **21.90** | improves on 3/4 retained identities |
 
-Across all 12 target-concept cells and 36 retained-concept probes in the full tables,
-target erasure strictly improves on 8 (1 tie, 3 losses — all three concentrated in
-multi-concept Mickey Mouse erasure) and retained-concept preservation strictly improves
-on 33 (1 tie, 2 losses), at negligible added inference cost (1.2s offline build, +0.7%
-generation overhead, zero fine-tuning — see `results/SCOREBOARD.md` Table 5).
-
-CARE is strongest when the target concept has an identity component that is separable
-from the retained concepts (Snoopy, art styles, Bruce Lee, Marilyn Monroe); on more
-entangled targets (Mickey in multi-instance erasure, Melania Trump) it still improves
-preservation but may trade off some erasure strength — this is the expected erase–preserve
-trade-off the shrinkage parameter `γ` is designed to expose (see the ablation in
-`results/SCOREBOARD.md` Table 6), not a failure mode.
-
-**Excluded from this results set:** an open NSFW/I2P smoke-test cell (n=4, not part of
-the paper's evaluation surface).
 
 ## Repository structure
 
@@ -201,3 +184,7 @@ A citation will be added here once the paper is published.
 ## License
 
 Apache License 2.0 — see [`LICENSE`](LICENSE).
+
+## Acknowledgement
+
+We thank the authors of AdaVD for their code.
