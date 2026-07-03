@@ -131,23 +131,6 @@ skipped entirely otherwise, so the script runs unmodified on a single local GPU 
 Hugging Face account required. Expect several GPU-hours for the full 9-cell sweep at
 `ns=10` with all benchmark templates.
 
-## Results
-
-Evaluated under the standard concept-erasure protocol (SD-1.4, DPM-Solver, 30 steps, CFG
-7.5, CLIP score for erasure, FID for preservation) across instance, art-style, and
-celebrity concept erasure. Full tables (paper Tables 1, 3–6) are in
-**[`results/SCOREBOARD.md`](results/SCOREBOARD.md)**:
-
-| Setting | Target CS↓ (before → after CARE) | Retained-concept FID↓ |
-|---|---|---|
-| Erase Snoopy (single) | 20.28 → **19.42** | improves on **all 5** retained probes |
-| Erase Van Gogh (style) | 24.87 → **23.63** | improves on 3/4 retained styles |
-| Erase Picasso (style) | 26.99 → 26.99 (tie) | improves on **all 4** retained styles |
-| Erase Monet (style) | 26.30 → **24.58** | improves on **all 4** retained styles |
-| Erase Bruce Lee (celeb) | 20.67 → **18.42** | improves on **all 4** retained identities |
-| Erase Marilyn Monroe (celeb) | 19.87 → **17.73** | improves on **all 4** retained identities |
-| Erase Melania Trump (celeb) | 23.28 → **21.90** | improves on 3/4 retained identities |
-
 
 ## Repository structure
 
